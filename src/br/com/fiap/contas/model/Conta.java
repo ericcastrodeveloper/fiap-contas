@@ -2,7 +2,7 @@ package br.com.fiap.contas.model;
 
 import br.com.fiap.contas.exception.SaldoInsuficienteException;
 
-public abstract class Conta {
+public abstract class Conta implements Comparable<Conta> {
 
     double saldo;
     String titular;
@@ -83,5 +83,10 @@ public abstract class Conta {
                 ", numero=" + numero +
                 ", agencia='" + agencia + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Conta outraConta) {
+        return this.titular.compareTo(outraConta.titular);
     }
 }
